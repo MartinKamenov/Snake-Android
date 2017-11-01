@@ -1,7 +1,9 @@
-package com.kamenov.martin.snake;
+package com.kamenov.martin.snake.engine;
 
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
+
+import com.kamenov.martin.snake.engine.GamePannel;
 
 /**
  * Created by Martin on 31.10.2017 г..

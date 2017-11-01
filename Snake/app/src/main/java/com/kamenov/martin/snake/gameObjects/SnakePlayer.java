@@ -1,9 +1,13 @@
-package com.kamenov.martin.snake;
+package com.kamenov.martin.snake.gameObjects;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+
+import com.kamenov.martin.snake.contracts.Constants;
+import com.kamenov.martin.snake.contracts.Direction;
+import com.kamenov.martin.snake.contracts.GameObject;
 
 import java.util.ArrayList;
 
@@ -26,7 +30,7 @@ public class SnakePlayer implements GameObject {
         rectangles.add(new Rect(0, 2*Constants.CELL_HEIGHT, Constants.CELL_WIDTH, 3*Constants.CELL_HEIGHT));
         setSize(3);
         paint = new Paint();
-        paint.setStyle(Paint.Style.STROKE);
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
         setColor(Color.RED);
         setDirection(Direction.Down);
     }

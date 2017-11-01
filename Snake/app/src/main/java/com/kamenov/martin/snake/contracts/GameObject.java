@@ -1,4 +1,4 @@
-package com.kamenov.martin.snake;
+package com.kamenov.martin.snake.contracts;
 
 import android.graphics.Canvas;
 

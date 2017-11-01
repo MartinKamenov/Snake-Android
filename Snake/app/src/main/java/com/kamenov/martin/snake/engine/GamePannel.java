@@ -1,15 +1,19 @@
-package com.kamenov.martin.snake;
+package com.kamenov.martin.snake.engine;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import com.kamenov.martin.snake.contracts.Constants;
+import com.kamenov.martin.snake.contracts.Direction;
+import com.kamenov.martin.snake.gameObjects.Food;
+import com.kamenov.martin.snake.gameObjects.SnakePlayer;
 
 /**
  * Created by Martin on 31.10.2017 г..
@@ -25,12 +29,14 @@ public class GamePannel extends SurfaceView implements SurfaceHolder.Callback {
     private float y2 = 0;
     private static int MIN_DISTANCE = 4000;
     private Food food;
+    public int score;
 
     public GamePannel(Context context) {
         super(context);
         getHolder().addCallback(this);
 
         setFocusable(true);
+        score = 0;
     }
 
     @Override
@@ -98,6 +104,7 @@ public class GamePannel extends SurfaceView implements SurfaceHolder.Callback {
         }
         if(checkForColisionWithFood()) {
             snakePlayer.addTale();
+            score++;
             Point p = getFoodCordinates();
             food.setCordinates(p.x, p.y);
         }
@@ -133,7 +140,7 @@ public class GamePannel extends SurfaceView implements SurfaceHolder.Callback {
                 }*/
                 if(Math.abs(deltaX)>Math.abs(deltaY)) {
                     if(deltaX > 0) {
-                        if(snakePlayer.getDirection()!=Direction.Left) {
+                        if(snakePlayer.getDirection()!= Direction.Left) {
                             snakePlayer.setDirection(Direction.Rigth);
                         }
                     }
@@ -187,7 +194,7 @@ public class GamePannel extends SurfaceView implements SurfaceHolder.Callback {
         if(last.left>=Constants.CELL_WIDTH * Constants.COLS ||
                 last.top>=Constants.CELL_HEIGHT * Constants.ROWS ||
                 last.right<=0 ||
-                last.top<=0) {
+                last.bottom<=0) {
             return true;
         }
 

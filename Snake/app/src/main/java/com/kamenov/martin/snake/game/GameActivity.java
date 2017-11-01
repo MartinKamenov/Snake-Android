@@ -1,8 +1,11 @@
-package com.kamenov.martin.snake;
+package com.kamenov.martin.snake.game;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+
+import com.kamenov.martin.snake.contracts.Constants;
+import com.kamenov.martin.snake.engine.GamePannel;
 
 public class GameActivity extends AppCompatActivity {
 
